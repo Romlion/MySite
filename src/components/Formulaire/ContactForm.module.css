@@ -1,0 +1,24 @@
+.firstname {
+    margin-left: 3.5%;
+    width: 55%;
+}
+.lastname {
+    margin-left: 1.8%;
+    width: 55%;
+}
+.phone {
+    margin-left: 0.3%;
+    width: 55%;
+}
+.email {
+    margin-left: 2.6%;
+    width: 55%;
+}
+.message {
+    margin-left: 1.5%;
+    width: 55%;
+}
+.submit {
+    margin-left: 33%;
+    width: 9%;
+}
