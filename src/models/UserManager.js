@@ -7,7 +7,7 @@ class UserManager extends AbstractManager {
 
     async read(id) {
         const [rows] = await this.database.query(
-            `select id, lastname, firstname, email from ${this.table} where id = ?`,
+            `select id, lastname, firstname, phonenumber, email from ${this.table} where id = ?`,
             [id]
         );
 
@@ -23,26 +23,17 @@ class UserManager extends AbstractManager {
     }
 
     async createUser(user) {
-        try {
-            await this.database.query("START TRANSACTION");
             const [result] = await this.database.query(
-                `INSERT INTO ${this.table}(lastname, firstname, email) VALUES (?, ?, ?)`,
+                `INSERT INTO ${this.table}(lastname, firstname, phonenumber, email) VALUES (?, ?, ?, ?)`,
                 [
                     user.lastname,
                     user.firstname,
+                    user.phonenumber,
                     user.email, 
                 ]
             );
             const userId = result.insertId;
-
-            await this.database.query("INSERT INTO logged_user(user_id) VALUES(?)", [
-                userId,
-            ]);
-            await this.database.query("COMMIT");
             return userId;
-        } catch (error) {
-            await this.database.query("ROLLBACK");
-        }
     }
 
     async findByMail(email) {

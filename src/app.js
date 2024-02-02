@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
-const express = require("express");
+import express, { json } from "express";
+import process from "dotenv";
 
 const app = express();
 
-const cors = require("cors");
+import cors from "cors";
 
 app.use(
     cors({
@@ -11,10 +11,19 @@ app.use(
     })
 );
 
-app.use(express.json());
+app.use(json());
 
-const router = require("./router");
+import router from "./router";
 
 app.use("/api", router);
 
-module.exports = app;
+const port = process.env.APP_PORT
+console.info(port);
+app.listen(port, () => {
+    console.info(`Server is listening on port ${port}`);
+})
+.on("error", (error) => {
+console.error("Error:", error.message);
+})
+
+export default app;

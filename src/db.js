@@ -1,10 +1,10 @@
 import { createConnection } from "mysql";
 
 const connection = createConnection({
-    host: "localhost:5173",
+    host: "localhost",
     user: "root",
     password: "Werewolf59116@",
-    database: "MySite",
+    database: "mysite",
 });
 
 connection.connect((err) => {

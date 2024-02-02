@@ -1,39 +1,25 @@
-const Joi = require("joi");
+import { object, string } from "joi";
 
-const userSchema = Joi.object({
-    lastname: Joi.string().max(50).required(),
-    firstname: Joi.string().max(50).required(),
-    email: Joi.string().email().max(255).required(),
+const userSchema = object({
+    lastname: string().max(50).required(),
+    firstname: string().max(50).required(),
+    phonenumber: string().max(50).required(),
+    email: string().email().max(255).required(),
 });
 
-const dbConfig = {
-    host:"DB_HOST",
-    user: "DB_USER",
-    password: "DB_PASSWORD",
-    database: "DB_NAME",
-};
-
-const pool = mysql.createPool(dbConfig);
-
 const validateUser = (req, res, next) => {
-    const { lastname, firstname, email, src, password } = req.body;
+    const { lastname, firstname, phonenumber, email } = req.body;
 
     const { error } = userSchema.validate(
-        { lastname, firstname, email, src, password },
+        { lastname, firstname, phonenumber, email },
         { abortEarly: false }
       );
 
       if (error) {
         res.status(422).json({ validationErrors: error.details });
       } else {
-        try{
-          const connection = await pool.getConnection();
-          await connection.execute(
-            'INSERT INTO users (lastname, firstname, email) VALUES (?, ?, ?)',
-          )
-        }
         next();
       }
     }; 
 
-module.exports = validateUser;
+export default validateUser;
