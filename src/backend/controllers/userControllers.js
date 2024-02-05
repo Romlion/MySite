@@ -55,6 +55,7 @@ const getByMail = async (req, res, next) => {
       req.userId = user.id;
       req.lastname = user.lastname;
       req.firstname = user.firstname;
+      req.phonenumber = user.phonenumber;
       req.email = user.email;
       next();
     } else {
