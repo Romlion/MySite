@@ -6,14 +6,6 @@ create table user (
   email VARCHAR(255) NOT NULL
 );
 
-create table administrator (
-  id int primary key auto_increment not null,
-  user_id int,
-  constraint fk_administrator_user
-  foreign key (user_id)
-  references user(id)
-);
-
 CREATE TABLE user_message (
   message_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   user_id INT,

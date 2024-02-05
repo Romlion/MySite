@@ -1,9 +1,10 @@
-import express from "express";
-import process from "dotenv";
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+const express = require("express");
 
 const app = express();
 
-import cors from "cors";
+const cors = require("cors");
 
 app.use(
     cors({
@@ -13,9 +14,17 @@ app.use(
 
 app.use(express.json());
 
-import router from "./router";
+const router = require("./router");
 
-app.use("/api", router);
+app.use(express.static("public"));
+
+const reactBuildPath = `${__dirname}/../../frontend/dist`;
+
+app.use(express.static(reactBuildPath));
+
+app.get("*", (req, res) => {
+    res.sendFile(`${reactBuildPath}/index.html`);
+});
 
 const port = process.env.APP_PORT
 console.info(port);
