@@ -34,6 +34,19 @@ const addUser = async (req, res, next) => {
   }
 };
 
+const deleteUser = async (req, res, next) => {
+  try {
+    const deleteUser = await tables.user.delete(req.params.id);
+    if (deleteUser.affectedRows === 0) {
+      res.status(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getByMail = async (req, res, next) => {
   const { email } = req.body;
   try {
@@ -52,18 +65,6 @@ const getByMail = async (req, res, next) => {
   }
 };
 
-const deleteUser = async (req, res, next) => {
-  try {
-    const deleteUser = await tables.user.delete(req.params.id);
-    if (deleteUser.affectedRows === 0) {
-      res.status(404);
-    } else {
-      res.sendStatus(204);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
 
 const verifyEmail = async (req, res, next) => {
   const { email } = req.body;
