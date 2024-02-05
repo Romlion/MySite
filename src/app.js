@@ -1,4 +1,4 @@
-import express, { json } from "express";
+import express from "express";
 import process from "dotenv";
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(
     })
 );
 
-app.use(json());
+app.use(express.json());
 
 import router from "./router";
 

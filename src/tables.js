@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import UserManager from "./models/UserManager";
+const UserManager = require("./models/UserManager");
 
 const managers = [
     UserManager,
@@ -13,13 +13,13 @@ managers.forEach((ManagerClass) => {
     tables[manager.table] = manager
 });
 
-export default new Proxy(tables,{
+module.exports = new Proxy(tables, {
     get(obj, prop) {
-
-        if (prop in obj) return obj[prop];
+        if (prop in obj) return obj [prop];
 
         throw new ReferenceError(
             `tables.${prop} is not defined. Did you register it in ${__filename}?`
         );
     },
 });
+   

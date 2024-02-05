@@ -16,7 +16,8 @@ class UserManager extends AbstractManager {
 
     async readAll() {
         const [rows] = await this.database.query(
-            `SELECT id, lastname, firstname, email FROM ${this.table}`
+            `SELECT id, lastname, firstname, email 
+            FROM ${this.table}`
         );
 
         return rows;

@@ -1,17 +1,15 @@
-import { Router } from "express";
+/* eslint-disable no-undef */
+const express = require("express");
 
-const router = Router();
+const router = express.Router();
 
-import { getUserById, getUsers, addUser, deleteUser } from "./controllers/userControllers";
-import { postAdmin } from "./controllers/adminControllers";
+const userControllers = require("./controllers/userControllers");
+const validateUser = require("./middlewares/validateUser");
 
-import validateUser from "./middlewares/validateUser";
-
-router.get("/user/:id", getUserById);
-router.get("/user", getUsers);
-router.post("/user", validateUser,addUser);
-router.delete("/user/:id", deleteUser);
-
-router.post("/admin", postAdmin);
+router.get("/user/:id", userControllers.getUserById);
+router.get("/user", userControllers.getUsers);
+router.post("/user", validateUser, userControllers.addUser);
+router.post("/user", userControllers.getByMail);
+router.delete("/user/:id", userControllers.deleteUser);
 
 export default router;
