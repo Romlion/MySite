@@ -1,4 +1,5 @@
-import AbstractManager from "./AbstractManager";
+/* eslint-disable no-undef */
+const AbstractManager = require("./AbstractManager");
 
 class UserManager extends AbstractManager {
     constructor() {
@@ -44,6 +45,17 @@ class UserManager extends AbstractManager {
           );
           return data[0];
     }
+
+    async delete(id) {
+        try {
+            await this.database.query("DELETE FROM user WHERE user_id = ?", [id]);
+            await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+            return rows[0];
+        } catch (err) {
+            await this.database.query("ROLLBACK");
+            return err;
+        }
+    }
 }
 
-export default UserManager;
+module.exports = UserManager;

@@ -3,7 +3,7 @@ const tables = require("../tables");
 
 const getUserById = async (req, res, next) => {
   try {
-    const user = await user.read(req.params.id);
+    const user = await tables.user.read(req.params.id);
     if (user) {
       res.status(200).json(user);
     } else {
@@ -16,7 +16,7 @@ const getUserById = async (req, res, next) => {
 
 const getUsers = async (req, res, next) => {
   try {
-    const users = await users.readAll();
+    const users = await tables.user.readAll();
     res.status(200).json(users);
   } catch (err) {
     next(err);
@@ -27,7 +27,7 @@ const addUser = async (req, res, next) => {
   const user = req.body;
 
   try {
-    const insertId = await user.createUser(user);
+    const insertId = await tables.user.createUser(user);
     res.status(201).json({ insertId });
   } catch (err) {
     next(err);
@@ -37,7 +37,7 @@ const addUser = async (req, res, next) => {
 const getByMail = async (req, res, next) => {
   const { email } = req.body;
   try {
-    const user = await user.findByMail(email);
+    const user = await tables.user.findByMail(email);
     if (user) {
       req.userId = user.id;
       req.lastname = user.lastname;
@@ -65,10 +65,25 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
+const verifyEmail = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    const user = await tables.user.findByMail(email);
+    if (user) {
+      res.status(409).send("Email already exists");
+    } else {
+      next();
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
 export default {
   getUserById,
   getUsers,
   addUser,
   getByMail,
+  verifyEmail,
   deleteUser,
 };

@@ -5,7 +5,6 @@ create table user (
   phonenumber VARCHAR(50) NOT NULL,
   email VARCHAR(255) NOT NULL
 );
-
 CREATE TABLE user_message (
   message_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   user_id INT,
