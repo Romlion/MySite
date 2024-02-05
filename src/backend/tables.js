@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const UserManager = require("./models/UserManager");
+const UserManager = require("../models/UserManager");
 
 const managers = [
     UserManager,

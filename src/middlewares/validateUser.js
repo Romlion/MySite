@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import Joi from "joi";
+const Joi = require("joi");
 
 const userSchema = object({
     lastname: Joi.string().max(50).required(),
@@ -23,4 +24,4 @@ const validateUser = (req, res, next) => {
       }
     }; 
 
-export default validateUser;
+module.exports = validateUser;
