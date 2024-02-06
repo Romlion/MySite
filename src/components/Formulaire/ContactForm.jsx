@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "./ContactForm.module.css"
 
-function ContactForm () {
+const ContactForm = () => {
     const [formData, setFormData] = useState({
         firstname: "",
         lastname: "",
@@ -19,19 +19,12 @@ function ContactForm () {
         e.preventDefault();
 
         try {
-            await axios.post("http://localhost:5000/api/contacts", formData);
+            const response = await axios.post("http://localhost:3001/contact", formData);
+            console.log(response.data);
 
-            setFormData({
-                firstname: "",
-                lastname: "",
-                phonenumber: "",
-                email: "",
-                message: ""
-            });
-
-            console.log("Formulaire soumis avec succès!");
+            setFormData({ firstname: "", lastname: "", phonenumber: "", email: "", message: "" });
         } catch (error) {
-            console.error("Erreur lors de la soumission du formulaire", error);
+            console.error("Erreur lors de l'envoi du formulaire :", error);
         }
     };
 
@@ -42,10 +35,11 @@ function ContactForm () {
                 <input 
                 type="text" 
                 name="firstname" 
-                className={styles.firstname} 
+                placeholder="Nom" 
                 value={formData.firstname} 
-                onChange={handleChange}
-                 />
+                onChange={handleChange} 
+                required
+                />
             </label>
             <br />
             <label>
@@ -53,9 +47,10 @@ function ContactForm () {
                 <input 
                 type="text" 
                 name="lastname" 
-                className={styles.lastname} 
+                placeholder="Prénom" 
                 value={formData.lastname} 
                 onChange={handleChange} 
+                required
                 />
             </label>
             <br />
@@ -64,9 +59,10 @@ function ContactForm () {
                 <input 
                 type="text" 
                 name="phone" 
-                className={styles.phone} 
-                value={formData.phone}
+                placeholder="Téléphone" 
+                value={formData.phonenumber} 
                 onChange={handleChange} 
+                required
                 />
             </label>
             <br />
@@ -75,9 +71,10 @@ function ContactForm () {
                     <input 
                     type="text" 
                     name="email" 
-                    className={styles.email} 
+                    placeholder="E-mail" 
                     value={formData.email} 
                     onChange={handleChange} 
+                    required
                     />
             </label>
             <br />
@@ -85,9 +82,10 @@ function ContactForm () {
                 message:
                 <textarea 
                 name="message" 
-                className={styles.message} 
+                placeholder="Message" 
                 value={formData.message} 
                 onChange={handleChange} 
+                required
                 />
             </label>
             <br />

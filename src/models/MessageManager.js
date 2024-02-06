@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-const AbstractManager = require("./AbstractManager");
+import AbstractManager from "./AbstractManager";
 
 class MessageManager extends AbstractManager {
     constructor() {
@@ -31,4 +30,4 @@ class MessageManager extends AbstractManager {
     }
 }
 
-module.exports = MessageManager;
+export default MessageManager;

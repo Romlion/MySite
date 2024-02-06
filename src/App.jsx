@@ -9,7 +9,7 @@ import ContactForm from "./components/Formulaire/ContactForm";
 const furnitureList = [
   {
       name:"Comode",
-      imgSrc:"src/assets/chestOfDrawers.jpg",
+      imgSrc:"src/assets/chestOfDrawers.png",
       description:"La conception de meubles en bois est un processus méticuleux qui marie la créativité artistique à l'expertise technique. Chez [Nom de votre entreprise], chaque pièce est façonnée avec soin, depuis la sélection des matériaux jusqu'aux détails finaux, pour assurer une qualité exceptionnelle et une esthétique raffinée.",
       
       "Sélection des Bois de Qualité : Le processus commence par la sélection méticuleuse des essences de bois. Nous privilégions des bois de qualité supérieure, choisis pour leur beauté naturelle, leur durabilité et leurs caractéristiques uniques. Que ce soit le chêne robuste, le noyer chaleureux, ou le merisier élégant, chaque type de bois est choisi avec soin pour correspondre au design spécifique du meuble.":
