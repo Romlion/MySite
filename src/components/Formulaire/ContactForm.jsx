@@ -29,12 +29,13 @@ const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="container">
             <label>
                 Nom:
                 <input 
                 type="text" 
-                name="firstname" 
+                name="firstname"
+                className={styles.firstname} 
                 placeholder="Nom" 
                 value={formData.firstname} 
                 onChange={handleChange} 
@@ -46,7 +47,8 @@ const ContactForm = () => {
                 Prenom:
                 <input 
                 type="text" 
-                name="lastname" 
+                name="lastname"
+                className={styles.lastname} 
                 placeholder="Prénom" 
                 value={formData.lastname} 
                 onChange={handleChange} 
@@ -58,7 +60,8 @@ const ContactForm = () => {
                 Telephone:
                 <input 
                 type="text" 
-                name="phone" 
+                name="phonenumber"
+                className={styles.phonenumber} 
                 placeholder="Téléphone" 
                 value={formData.phonenumber} 
                 onChange={handleChange} 
@@ -71,6 +74,7 @@ const ContactForm = () => {
                     <input 
                     type="text" 
                     name="email" 
+                    className={styles.email}
                     placeholder="E-mail" 
                     value={formData.email} 
                     onChange={handleChange} 
@@ -82,7 +86,8 @@ const ContactForm = () => {
                 message:
                 <textarea 
                 name="message" 
-                placeholder="Message" 
+                placeholder="Message"
+                className={styles.message} 
                 value={formData.message} 
                 onChange={handleChange} 
                 required

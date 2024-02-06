@@ -1,24 +1,30 @@
 .firstname {
-    margin-left: 3.5%;
+    margin-left: 15%;
     width: 55%;
+    display: flex;
 }
 .lastname {
-    margin-left: 1.8%;
+    margin-left: 15%;
     width: 55%;
+    display: flex;
 }
-.phone {
-    margin-left: 0.3%;
+.phonenumber {
+    margin-left: 15%;
     width: 55%;
+    display: flex;
 }
 .email {
-    margin-left: 2.6%;
+    margin-left: 15%;
     width: 55%;
+    display: flex;
 }
 .message {
-    margin-left: 1.5%;
+    margin-left: 15%;
     width: 55%;
+    display: flex;
 }
 .submit {
-    margin-left: 33%;
-    width: 9%;
+    margin-left: 35%;
+    margin-bottom: 1.8%;
+    width: 15%;
 }
