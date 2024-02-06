@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const express = require("express");
-const bodyParser = require("body-parser");
+
+import express from "express";
+import { json } from "body-parser";
 
 const app = express();
 const PORT = process.env.PORT || 3001
 
-app.use(bodyParser.json());
+app.use(json());
 
 app.post("/contact", (req, res) => {
     const formData = req.body;

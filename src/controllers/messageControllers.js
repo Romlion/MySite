@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
-const tables = require("../tables");
+
+import { message as _message } from "../tables";
 
 const browse = async (req, res, next) => {
     try {
-        const message = await tables.message.readAll();
+        const message = await _message.readAll();
 
         res.json(message);
     } catch (err) {
@@ -13,7 +13,7 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
     try {
-        const message = await tables.message.read(req.params.id);
+        const message = await _message.read(req.params.id);
 
         if (message == null) {
             res.sendStatus(404);
@@ -29,7 +29,7 @@ const add = async (req, res, next) => {
     const message = req.body;
 
     try {
-        const insertId = await tables.message.create(message);
+        const insertId = await _message.create(message);
 
         res.status(201).json({ insertId });
     } catch (err) {
@@ -37,7 +37,7 @@ const add = async (req, res, next) => {
     }
 };
 
-module.exports = {
+export default {
     browse,
     read,
     add,

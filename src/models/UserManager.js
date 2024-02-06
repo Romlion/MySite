@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
-const AbstractManager = require("./AbstractManager");
+
+import AbstractManager from "./AbstractManager";
 
 class UserManager extends AbstractManager {
     constructor() {
@@ -58,4 +59,4 @@ class UserManager extends AbstractManager {
     }
 }
 
-module.exports = UserManager;
+export default UserManager;

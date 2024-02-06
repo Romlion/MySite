@@ -1,12 +1,11 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const Joi = require("joi");
+import { string } from "joi";
 
 const userSchema = object({
-    lastname: Joi.string().max(50).required(),
-    firstname: Joi.string().max(50).required(),
-    phonenumber: Joi.string().max(50).required(),
-    email: Joi.string().email().max(255).required(),
+    lastname: string().max(50).required(),
+    firstname: string().max(50).required(),
+    phonenumber: string().max(50).required(),
+    email: string().email().max(255).required(),
 });
 
 const validateUser = (req, res, next) => {
@@ -24,4 +23,4 @@ const validateUser = (req, res, next) => {
       }
     }; 
 
-module.exports = validateUser;
+export default validateUser;

@@ -1,22 +1,23 @@
-/* eslint-disable no-undef */
-const express = require("express");
 
-const router = express.Router();
 
-const userControllers = require("./controllers/userControllers");
-const validateUser = require("./middlewares/validateUser");
-const messageControllers = require("./controllers/messageControllers");
-const validateMessage = require("./middlewares/validateMessage");
+import { Router } from "express";
 
-router.get("/user/:id", userControllers.getUserById);
-router.get("/user", userControllers.getUsers);
-router.post("/user", validateUser, userControllers.addUser);
-router.post("/user", userControllers.getByMail);
-router.delete("/user/:id", userControllers.deleteUser);
+const router = Router();
 
-router.get("/message/:id", messageControllers.getMessageById);
-router.get("/message", messageControllers.getMessage);
-router.post("/message", validateMessage, messageControllers.addMessage);
-router.post("/message/:id", messageControllers.deleteMessage);
+import { getUserById, getUsers, addUser, getByMail, deleteUser } from "./controllers/userControllers";
+import validateUser from "./middlewares/validateUser";
+import { getMessageById, getMessage, addMessage, deleteMessage } from "./controllers/messageControllers";
+import validateMessage from "./middlewares/validateMessage";
+
+router.get("/user/:id", getUserById);
+router.get("/user", getUsers);
+router.post("/user", validateUser, addUser);
+router.post("/user", getByMail);
+router.delete("/user/:id", deleteUser);
+
+router.get("/message/:id", getMessageById);
+router.get("/message", getMessage);
+router.post("/message", validateMessage, addMessage);
+router.post("/message/:id", deleteMessage);
 
 export default router;

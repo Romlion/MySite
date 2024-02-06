@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const UserManager = require("../models/UserManager");
+import UserManager from "../models/UserManager";
 
 const managers = [
     UserManager,
@@ -13,7 +13,7 @@ managers.forEach((ManagerClass) => {
     tables[manager.table] = manager
 });
 
-module.exports = new Proxy(tables, {
+export default new Proxy(tables, {
     get(obj, prop) {
         if (prop in obj) return obj [prop];
 

@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-undef
+/* eslint-disable no-undef */
+
 const tables = require("../backend/tables");
 
 const getUserById = async (req, res, next) => {
