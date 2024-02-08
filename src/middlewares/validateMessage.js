@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import { string } from "joi";
+import Joi from "joi";
 
 const messageSchema = object({
-    lastname: string().max(50).required(),
-    firstname: string().max(50).required(),
-    phonenumber: string().max(50).required(),
-    email: string().email().max(255).required(),
+    lastname: Joi.string().max(50).required(),
+    firstname: Joi.string().max(50).required(),
+    phonenumber: Joi.string().max(50).required(),
+    email: Joi.string().email().max(255).required(),
 });
 
 const validateMessage = (req, res, next) => {

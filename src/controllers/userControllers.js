@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-const tables = require("../backend/tables");
+const tables = require("../tables");
 
 const getUserById = async (req, res, next) => {
   try {

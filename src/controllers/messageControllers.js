@@ -1,11 +1,11 @@
 
-import { message as _message } from "../tables";
+import tables from "../tables";
 
 const browse = async (req, res, next) => {
     try {
-        const message = await _message.readAll();
+        const messages = await tables.message.readAll();
 
-        res.json(message);
+        res.json(messages);
     } catch (err) {
         next(err);
     }
@@ -13,7 +13,7 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
     try {
-        const message = await _message.read(req.params.id);
+        const message = await tables.message.read(req.params.id);
 
         if (message == null) {
             res.sendStatus(404);
@@ -29,7 +29,7 @@ const add = async (req, res, next) => {
     const message = req.body;
 
     try {
-        const insertId = await _message.create(message);
+        const insertId = await tables.message.create(message);
 
         res.status(201).json({ insertId });
     } catch (err) {
