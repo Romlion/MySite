@@ -4,7 +4,6 @@ import { useState } from "react";
 import FurnitureCard from "./components/Furniture/FurnitureCard";
 import NavBarFurniture from "./components/Furniture/NavBarFurniture";
 import "./components/Furniture/FurnitureCard"
-import ContactForm from "./components/Formulaire/ContactForm";
 
 const furnitureList = [
   {
@@ -44,12 +43,6 @@ const furnitureList = [
 
 function App() {
   const [furnitureIndex, setFurnitureIndex] = useState(0)
-  const [contacts, updateContacts] = useState([]);
-
-  const addContact = (contactInfo) => {
-    updateContacts([...contacts, contactInfo]);
-  };
-  console.log(contacts);
 
   return (
     <>
@@ -61,7 +54,7 @@ function App() {
     furnitureList={furnitureList}
     />
     <FurnitureCard furniture={furnitureList[furnitureIndex]}/>
-    <ContactForm addContact={addContact}/>
+    {/* <ContactForm addContact={addContact}/> */}
     </>
   );
 }
