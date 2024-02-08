@@ -6,9 +6,7 @@ const FurnitureCard = ({ furniture }) => {
         <figure className={styles.card}>
                 <h2 className={styles.cardTitle}>{furniture.name}</h2>
                 <img src={furniture.imgSrc} alt={furniture.name} className={styles.cardImg} />
-            <figcaption>
-                <p className={styles.cardDescription}>{furniture.description}</p>
-                </figcaption>
+            <figcaption className={styles.cardDescription}>{furniture.description}</figcaption>
         </figure>
     );
 }

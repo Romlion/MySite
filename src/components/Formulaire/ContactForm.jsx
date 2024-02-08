@@ -3,7 +3,9 @@ import axios from "axios";
 import styles from "./ContactForm.module.css"
 import NavBar from "../NavBar/NavBar";
 
-const ContactForm = () => {
+
+
+function ContactForm() {
     const [formData, setFormData] = useState({
         firstname: "",
         lastname: "",
@@ -32,6 +34,7 @@ const ContactForm = () => {
     return (
         <>
         <NavBar />
+        <h1 className={styles.contact_form}>Contact</h1>
         <form className={styles.container} onSubmit={handleSubmit} >
             <label>
                 Nom:
@@ -44,7 +47,6 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required />
             </label>
-            <br />
             <label>
                 Prenom:
                 <input
@@ -56,7 +58,6 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required />
             </label>
-            <br />
             <label>
                 Telephone:
                 <input
@@ -68,7 +69,6 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required />
             </label>
-            <br />
             <label>
                 e-mail:
                 <input
@@ -80,7 +80,6 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required />
             </label>
-            <br />
             <label>
                 message:
                 <textarea
@@ -91,7 +90,6 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required />
             </label>
-            <br />
             <button
                 type="submit"
                 className={styles.submit}

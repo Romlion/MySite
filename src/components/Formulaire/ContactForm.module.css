@@ -3,6 +3,10 @@
     margin-top: 10%;
 }
 
+.contact_form {
+    display: flex;
+    justify-content: center;
+}
 .firstname {
     margin-left: 15%;
     width: 55%;
