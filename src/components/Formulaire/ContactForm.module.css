@@ -9,31 +9,31 @@
 }
 .firstname {
     margin-left: 15%;
-    width: 55%;
+    width: 60%;
     display: flex;
 }
 .lastname {
     margin-left: 15%;
-    width: 55%;
+    width: 60%;
     display: flex;
 }
 .phonenumber {
     margin-left: 15%;
-    width: 55%;
+    width: 60%;
     display: flex;
 }
 .email {
     margin-left: 15%;
-    width: 55%;
+    width: 60%;
     display: flex;
 }
 .message {
     margin-left: 15%;
-    width: 55%;
+    width: 60%;
     display: flex;
 }
 .submit {
+    margin-top: 1.5%;
     margin-left: 35%;
-    margin-bottom: 1.8%;
     width: 15%;
 }
