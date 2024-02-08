@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import styles from "./ContactForm.module.css"
+import styles from "./ContactForm.module.scss"
 import NavBar from "../NavBar/NavBar";
 
 

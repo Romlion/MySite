@@ -7,30 +7,26 @@
     display: flex;
     justify-content: center;
 }
-.firstname {
-    margin-left: 15%;
+@mixin form {
+  margin-left: 15%;
     width: 60%;
     display: flex;
+}
+
+.firstname {
+  @include form;
 }
 .lastname {
-    margin-left: 15%;
-    width: 60%;
-    display: flex;
+   @include form;
 }
 .phonenumber {
-    margin-left: 15%;
-    width: 60%;
-    display: flex;
+   @include form;
 }
 .email {
-    margin-left: 15%;
-    width: 60%;
-    display: flex;
+    @include form;
 }
 .message {
-    margin-left: 15%;
-    width: 60%;
-    display: flex;
+    @include form;
 }
 .submit {
     margin-top: 1.5%;
