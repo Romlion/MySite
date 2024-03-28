@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import "./Home.css";
+import "./Home.scss";
 
 const Home = () => {
     return (

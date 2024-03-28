@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Home from './components/HomePage/Home.jsx'
 import NavBar from './components/NavBar/NavBar.jsx'
-import "./components/NavBar/NavBar.css"
+import "./components/NavBar/NavBar.scss"
 import ContactForm from './components/Formulaire/ContactForm.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 

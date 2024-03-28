@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import styles from "./FurnitureCard.module.css"
+import styles from "./FurnitureCard.module.scss"
 
 const FurnitureCard = ({ furniture }) => {
      return (
